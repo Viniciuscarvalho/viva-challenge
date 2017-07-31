@@ -6,4 +6,12 @@
 //  Copyright © 2017 Vinicius Carvalho. All rights reserved.
 //
 
-import Foundation
+import UIKit
+import AlamofireImage
+
+class GameCell: UICollectionViewCell {
+
+    @IBOutlet weak var gameImage: UIImageView!
+    @IBOutlet weak var gameTitle: UILabel!
+
+}

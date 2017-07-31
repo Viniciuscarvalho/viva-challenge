@@ -6,4 +6,12 @@
 //  Copyright © 2017 Vinicius Carvalho. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class GameDetailViewController: UIViewController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+}
