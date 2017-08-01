@@ -13,5 +13,11 @@ class GameCell: UICollectionViewCell {
 
     @IBOutlet weak var gameImage: UIImageView!
     @IBOutlet weak var gameTitle: UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.gameImage.layer.cornerRadius = self.gameImage.frame.width / 2
+        self.gameImage.clipsToBounds = true;
+    }
 
 }

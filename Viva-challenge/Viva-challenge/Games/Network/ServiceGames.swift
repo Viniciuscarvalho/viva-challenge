@@ -21,7 +21,7 @@ final class ServiceGames {
         self.currentPage += 1
     }
     
-    func getGames(completion: @escaping (_ game: [Game]?,_ error: Error?) -> Void) {
+    func getGames(completion: @escaping (_ game: [Game]?, _ error: Error?) -> Void) {
         
         let url = "\(URLGAMES)\(currentPage)"
         let headers = [

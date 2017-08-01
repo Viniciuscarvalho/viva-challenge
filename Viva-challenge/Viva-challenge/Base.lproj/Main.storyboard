@@ -171,6 +171,12 @@
                             <constraint firstAttribute="trailing" secondItem="8ze-OO-wlj" secondAttribute="trailing" constant="16" id="wki-Ci-9ZC"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="channelsGame" destination="nIT-ll-G2l" id="2JF-Ww-07I"/>
+                        <outlet property="nameGame" destination="8ze-OO-wlj" id="p4K-0w-Pfl"/>
+                        <outlet property="thumbImageDetail" destination="m6S-hZ-EFC" id="A9Y-TX-7QO"/>
+                        <outlet property="visualizationsGame" destination="aax-l5-QVd" id="qoV-2K-cH3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LWk-X1-ysL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
