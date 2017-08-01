@@ -1,0 +1,6 @@
+framework module Pods_Viva_challenge {
+  umbrella header "Pods-Viva-challenge-umbrella.h"
+
+  export *
+  module * { export * }
+}
