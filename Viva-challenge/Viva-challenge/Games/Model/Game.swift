@@ -17,9 +17,9 @@ struct Game {
     let boxImage: BoxEntity?
     
     init(json: JSON) {
-        self.nameGame = json["name"].stringValue
+        self.nameGame = json["game"]["name"].stringValue
         self.viewers = json["viewers"].int
         self.channels = json["channels"].int
-        self.boxImage = BoxEntity(json: json["box"])
+        self.boxImage = BoxEntity(json: json["game"]["box"])
     }
 }

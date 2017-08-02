@@ -12,18 +12,14 @@ class GameViewController: UIViewController {
     
     let gameDataSource = GameDatasource()
     var requestGames = ServiceGames()
-    var games: NSArray = []
+    fileprivate let presenter = GamePresenter()
     
     @IBOutlet weak var gameCollectionView: UICollectionView!
     
     lazy var refreshControl: UIRefreshControl = {
-        
         let refreshControl = UIRefreshControl()
-        
         refreshControl.addTarget(self, action: #selector(GameViewController.didPullRefresh(_:)), for: UIControlEvents.valueChanged)
-        
         return refreshControl
-    
     }()
     
     //Mark: Lifecycle
@@ -31,29 +27,26 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Games"
+        gameCollectionView.delegate = self
+        gameCollectionView.dataSource = gameDataSource
         self.gameCollectionView.addSubview(self.refreshControl)
-        self.dataGames()
+        self.showAllGames()
     }
     
     //Mark: Refresh
     
     func didPullRefresh(_ refreshControl: UIRefreshControl) {
         self.requestGames.nextPagination()
-        self.dataGames()
+        self.showAllGames()
     }
     
     //Mark: Get Data
     
-    private func dataGames() {
-        LoadingHandler.show(on: self) { [unowned self] in
-            self.requestGames.getGames{ response in
-                if self.refreshControl.isRefreshing {
-                    self.refreshControl.endRefreshing()
-                }
-                if case .success(let value) = response {
-                    self.gameDataSource.games.append(contentsOf: value)
-                    self.gameCollectionView.reloadData()
-                }
+    private func showAllGames() {
+        presenter.presentAllGames(on: self) { (games) in
+            if let allGames = games {
+                self.gameDataSource.games = allGames
+                self.gameCollectionView.reloadData()
             }
         }
     }
@@ -74,4 +67,11 @@ class GameViewController: UIViewController {
         }
     }
 
+}
+
+extension GameViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedGame = gameDataSource.games[indexPath.row]
+        presenter.presentGameDetail(self, selectedGame)
+    }
 }

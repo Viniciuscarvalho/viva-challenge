@@ -11,18 +11,30 @@ import UIKit
 
 struct GamePresenter {
     
-    func presentGameDetail(rootView: UIViewController) {
+    func presentAllGames(on rootView: UIViewController, completion: @escaping ([Game]?) -> Void) {
         let service = ServiceGames()
-        LoadingHandler.show(on: rootView)  {
-            service.getGames() { (_: [model]?) in
-                if let gamesDetail = model {
-                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                    let gameDetails = storyboard.instantiateViewController(withIdentifier: "GameDetailViewController") as! GameDetailViewController
-                    gamesDetail.gamesModel = self.games[indexPath.row]
+        LoadingHandler.show(on: rootView) {
+            service.getGames(completion: { (gamesResponse, error) in
+                if let allGames = gamesResponse {
                     LoadingHandler.hide()
-                    rootView.present(gamesDetails, animated: true, completion: nil)
+                    completion(allGames)
+                } else {
+                    completion(nil)
+                    self.showErroMessage(error: error)
                 }
-            }
+            })
         }
+    }
+    
+    func showErroMessage(error: Error?) {
+        fatalError(error?.localizedDescription ?? "Desculpe, tente novamente")
+    }
+    
+    func presentGameDetail(_ rootController: GameViewController, _ game: Game) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        var gameDetailView: GameDetailViewController
+        gameDetailView = storyboard.instantiateViewController(withIdentifier: String(describing: GameDetailViewController.self)) as! GameDetailViewController
+        gameDetailView.gamesModel = game
+        rootController.navigationController?.pushViewController(gameDetailView, animated: true)
     }
 }

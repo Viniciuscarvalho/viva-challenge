@@ -11,7 +11,6 @@ import UIKit
 class GameDatasource: NSObject, UICollectionViewDelegate, UICollectionViewDataSource {
 
     var games = [Game]()
-    private let presenter = GamePresenter()
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return games.count
@@ -24,17 +23,15 @@ class GameDatasource: NSObject, UICollectionViewDelegate, UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cellIdentifier = "GameCell"
-        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! GameCell
-        
         let game = games[indexPath.row]
         
         if let nameGame = game.nameGame {
             cell.gameTitle.text = nameGame
         }
         
-        if let imageGame = game.boxImage {
-            
+        if let imageGame = game.boxImage?.medium {
+            cell.useThumbImage(imageGame)
         }
         
         return cell
@@ -45,10 +42,4 @@ class GameDatasource: NSObject, UICollectionViewDelegate, UICollectionViewDataSo
         return CGSize(width: 150, height: 250)
     }
     
-    //Mark: Presenter
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        presenter.presentGameDetail(rootView: GameDetailViewController)
-    }
-
 }

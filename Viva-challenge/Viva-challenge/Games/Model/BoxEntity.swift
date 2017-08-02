@@ -18,7 +18,7 @@ struct BoxEntity {
     init(json: JSON) {
         self.large = json["large"].stringValue
         self.medium = json["medium"].stringValue
-        self.small = json[""].stringValue
+        self.small = json["small"].stringValue
         self.template = json["template"].stringValue
     }
     

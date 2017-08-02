@@ -35,7 +35,7 @@
         <!--Game View Controller-->
         <scene sceneID="wWC-QT-L15">
             <objects>
-                <viewController id="gT2-1y-hbK" customClass="GameViewController" sceneMemberID="viewController">
+                <viewController id="gT2-1y-hbK" customClass="GameViewController" customModule="Viva_challenge" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dT9-gE-y6s"/>
                         <viewControllerLayoutGuide type="bottom" id="I8B-F1-cEj"/>
@@ -55,7 +55,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="wRM-HQ-8bw" customClass="GameCell" customModule="Viva_challenge" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GameCell" id="wRM-HQ-8bw" customClass="GameCell" customModule="Viva_challenge" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="150" height="200"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">

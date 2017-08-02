@@ -21,7 +21,7 @@ class GameDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.setupViewGame(model: gamesModel)
     }
     
     //Mark: Setup
@@ -32,7 +32,12 @@ class GameDetailViewController: UIViewController {
         }
     }
     
+    func imageDetail(_ imageURL: String) {
+        thumbImageDetail.af_setImage(withURL: URL(string: imageURL)!)
+    }
+    
     func setupViewGame(model: Game) {
+        
         nameGame.text = model.nameGame
         
         if let channelsValue = gamesModel.channels {
@@ -43,6 +48,10 @@ class GameDetailViewController: UIViewController {
         if let visualizationValue = gamesModel.viewers {
             let valueToString = String(visualizationValue)
             visualizationsGame.text = valueToString
+        }
+        
+        if let imageValue = gamesModel.boxImage?.large {
+            imageDetail(imageValue)
         }
         
     }

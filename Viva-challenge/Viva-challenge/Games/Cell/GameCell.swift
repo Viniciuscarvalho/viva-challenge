@@ -19,5 +19,9 @@ class GameCell: UICollectionViewCell {
         self.gameImage.layer.cornerRadius = self.gameImage.frame.width / 2
         self.gameImage.clipsToBounds = true;
     }
+    
+    func useThumbImage(_ imageURL: String) {
+        gameImage.af_setImage(withURL: URL(string: imageURL)!)
+    }
 
 }
