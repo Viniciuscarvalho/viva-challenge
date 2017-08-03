@@ -17,6 +17,7 @@ struct GamePresenter {
             service.getGames(completion: { (gamesResponse, error) in
                 if let allGames = gamesResponse {
                     LoadingHandler.hide()
+                    self.save(objects: allGames)
                     completion(allGames)
                 } else {
                     completion(nil)
@@ -25,7 +26,15 @@ struct GamePresenter {
             })
         }
     }
-    
+
+    private func save(objects: [Game]?) {
+        if let games = objects {
+            let repository = CoreDataRepository()
+            let coreDataManager = CoreDataManager(repository)
+            coreDataManager.save(games)
+        }
+    }
+
     func showErroMessage(error: Error?) {
         fatalError(error?.localizedDescription ?? "Desculpe, tente novamente")
     }

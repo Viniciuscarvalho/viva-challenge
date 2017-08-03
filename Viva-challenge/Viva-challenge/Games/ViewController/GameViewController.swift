@@ -14,7 +14,9 @@ class GameViewController: UIViewController {
     let gameDataSource = GameDatasource()
     var requestGames = ServiceGames()
     fileprivate let presenter = GamePresenter()
-    
+
+    fileprivate let sectionInsets = UIEdgeInsets(top: 0.0, left: 0.5, bottom: 0.0, right: 0.0)
+
     @IBOutlet weak var gameCollectionView: UICollectionView!
     
     lazy var refreshControl: UIRefreshControl = {
@@ -28,6 +30,7 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Games"
+        
         gameCollectionView.delegate = self
         gameCollectionView.dataSource = gameDataSource
         self.gameCollectionView.addSubview(self.refreshControl)
@@ -59,9 +62,14 @@ class GameViewController: UIViewController {
     
     func networkUnreachable() {
         
-        let alert: UIAlertController = UIAlertController(title: "Aviso", message: "Por favor, verifique sua conexão.", preferredStyle: UIAlertControllerStyle.alert)
+        let alert: UIAlertController = UIAlertController(title: "Aviso",
+                message: "Por favor, verifique sua conexão.",
+                preferredStyle: UIAlertControllerStyle.alert)
         
-        let alertAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
+        let alertAction: UIAlertAction = UIAlertAction(title: "OK",
+                style: UIAlertActionStyle.default,
+                handler: nil)
+
         alert.addAction(alertAction)
         
         self.present(alert, animated: true, completion: nil)
@@ -72,6 +80,15 @@ class GameViewController: UIViewController {
     }
 
 }
+
+extension GameViewController: UICollectionViewDelegateFlowLayout {
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 150, height: 160)
+    }
+    
+}
+
 
 extension GameViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

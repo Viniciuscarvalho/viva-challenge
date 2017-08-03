@@ -12,15 +12,11 @@ import CoreData
 class GameDatasource: NSObject, UICollectionViewDelegate, UICollectionViewDataSource {
 
     var games = [Game]()
-    
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return games.count
     }
-    
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cellIdentifier = "GameCell"
@@ -37,17 +33,4 @@ class GameDatasource: NSObject, UICollectionViewDelegate, UICollectionViewDataSo
         
         return cell
     } 
-}
-
-extension GameViewController: UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        let padding: CGFloat = 45
-        let collectionCellSize = collectionView.frame.size.width - padding
-        
-        return CGSize(width: collectionCellSize/2, height: collectionCellSize/2)
-        
-    }
-    
 }

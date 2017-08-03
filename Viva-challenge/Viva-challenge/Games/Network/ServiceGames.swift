@@ -6,7 +6,6 @@
 //  Copyright © 2017 Vinicius Carvalho. All rights reserved.
 //
 
-import UIKit
 import Alamofire
 import SwiftyJSON
 
@@ -24,9 +23,8 @@ final class ServiceGames {
     func getGames(completion: @escaping (_ game: [Game]?, _ error: Error?) -> Void) {
         
         let url = "\(URLGAMES)\(currentPage)"
-        let headers = [
-            "Client-ID":ClientID
-        ]
+        let headers = ["Client-ID" : ClientID]
+
         Alamofire.request(url,
                           method: .get,
                           parameters: nil,

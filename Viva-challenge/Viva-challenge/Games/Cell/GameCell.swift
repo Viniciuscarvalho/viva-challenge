@@ -13,11 +13,10 @@ class GameCell: UICollectionViewCell {
 
     @IBOutlet weak var gameImage: UIImageView!
     @IBOutlet weak var gameTitle: UILabel!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.gameImage.layer.cornerRadius = self.gameImage.frame.width / 4
-        self.gameImage.clipsToBounds = true;
+        self.gameImage.layer.cornerRadius = 4
     }
     
     func useThumbImage(_ imageURL: String) {
