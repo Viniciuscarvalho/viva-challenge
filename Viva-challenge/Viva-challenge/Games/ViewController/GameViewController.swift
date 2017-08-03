@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class GameViewController: UIViewController {
     
@@ -32,7 +33,7 @@ class GameViewController: UIViewController {
         self.gameCollectionView.addSubview(self.refreshControl)
         self.showAllGames()
     }
-    
+
     //Mark: Refresh
     
     func didPullRefresh(_ refreshControl: UIRefreshControl) {
@@ -44,6 +45,9 @@ class GameViewController: UIViewController {
     
     private func showAllGames() {
         presenter.presentAllGames(on: self) { (games) in
+            if self.refreshControl.isRefreshing{
+                self.refreshControl.endRefreshing()
+            }
             if let allGames = games {
                 self.gameDataSource.games = allGames
                 self.gameCollectionView.reloadData()

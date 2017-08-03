@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class GameDatasource: NSObject, UICollectionViewDelegate, UICollectionViewDataSource {
 
@@ -35,11 +36,18 @@ class GameDatasource: NSObject, UICollectionViewDelegate, UICollectionViewDataSo
         }
         
         return cell
-    }
+    } 
+}
+
+extension GameViewController: UICollectionViewDelegateFlowLayout {
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: 150, height: 250)
+        let padding: CGFloat = 45
+        let collectionCellSize = collectionView.frame.size.width - padding
+        
+        return CGSize(width: collectionCellSize/2, height: collectionCellSize/2)
+        
     }
     
 }

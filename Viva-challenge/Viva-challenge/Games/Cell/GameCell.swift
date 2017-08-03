@@ -16,7 +16,7 @@ class GameCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.gameImage.layer.cornerRadius = self.gameImage.frame.width / 2
+        self.gameImage.layer.cornerRadius = self.gameImage.frame.width / 4
         self.gameImage.clipsToBounds = true;
     }
     
