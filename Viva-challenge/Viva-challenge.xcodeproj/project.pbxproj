@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		069DE6849774409FF1FD9FB9 /* Pods_Viva_challengeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65EC74F5FE490FED429D6716 /* Pods_Viva_challengeTests.framework */; };
+		7C3257961F32D1DA00059B08 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3257951F32D1DA00059B08 /* CoreDataManager.swift */; };
+		7C3257981F32D23200059B08 /* CoreDataGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3257971F32D23200059B08 /* CoreDataGateway.swift */; };
+		7C32579A1F32D31E00059B08 /* CoreDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3257991F32D31E00059B08 /* CoreDataRepository.swift */; };
 		EAABDEB11F300EEF00248BB5 /* GamePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAABDEB01F300EEF00248BB5 /* GamePresenter.swift */; };
 		EAE501821F29855D00C2DEC2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE501811F29855D00C2DEC2 /* AppDelegate.swift */; };
 		EAE501871F29855D00C2DEC2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAE501851F29855D00C2DEC2 /* Main.storyboard */; };
@@ -42,6 +45,9 @@
 		11248D3FBE086DC385531942 /* Pods_Viva_challenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Viva_challenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		65EC74F5FE490FED429D6716 /* Pods_Viva_challengeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Viva_challengeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A1739A82D65223B4E8BB940 /* Pods-Viva-challenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Viva-challenge.release.xcconfig"; path = "Pods/Target Support Files/Pods-Viva-challenge/Pods-Viva-challenge.release.xcconfig"; sourceTree = "<group>"; };
+		7C3257951F32D1DA00059B08 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		7C3257971F32D23200059B08 /* CoreDataGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataGateway.swift; sourceTree = "<group>"; };
+		7C3257991F32D31E00059B08 /* CoreDataRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataRepository.swift; sourceTree = "<group>"; };
 		BE012445420934DC63739D28 /* Pods-Viva-challengeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Viva-challengeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Viva-challengeTests/Pods-Viva-challengeTests.release.xcconfig"; sourceTree = "<group>"; };
 		C7F9A94F1BC05A426B7D8FD4 /* Pods-Viva-challenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Viva-challenge.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Viva-challenge/Pods-Viva-challenge.debug.xcconfig"; sourceTree = "<group>"; };
 		EAABDEB01F300EEF00248BB5 /* GamePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GamePresenter.swift; sourceTree = "<group>"; };
@@ -86,6 +92,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7C32579B1F32DA0700059B08 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				7C3257951F32D1DA00059B08 /* CoreDataManager.swift */,
+				7C3257971F32D23200059B08 /* CoreDataGateway.swift */,
+				7C3257991F32D31E00059B08 /* CoreDataRepository.swift */,
+			);
+			name = Repository;
+			sourceTree = "<group>";
+		};
 		908D69A88C7836A6622F05FF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -234,6 +250,7 @@
 			isa = PBXGroup;
 			children = (
 				EAABDEB01F300EEF00248BB5 /* GamePresenter.swift */,
+				7C32579B1F32DA0700059B08 /* Repository */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -303,8 +320,7 @@
 				TargetAttributes = {
 					EAE5017D1F29855D00C2DEC2 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 6U8286L9PF;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					EAE501941F29855D00C2DEC2 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -458,7 +474,10 @@
 				EAE501C71F2D314D00C2DEC2 /* ServiceGames.swift in Sources */,
 				EAE501BC1F2AD72400C2DEC2 /* GameViewController.swift in Sources */,
 				EAE5018A1F29855D00C2DEC2 /* Viva_challenge.xcdatamodeld in Sources */,
+				7C3257961F32D1DA00059B08 /* CoreDataManager.swift in Sources */,
 				EAE501CC1F2D320E00C2DEC2 /* LoadingViewController.swift in Sources */,
+				7C3257981F32D23200059B08 /* CoreDataGateway.swift in Sources */,
+				7C32579A1F32D31E00059B08 /* CoreDataRepository.swift in Sources */,
 				EAABDEB11F300EEF00248BB5 /* GamePresenter.swift in Sources */,
 				EAE501CE1F2D54F300C2DEC2 /* BoxEntity.swift in Sources */,
 				EAE501C21F2D24FC00C2DEC2 /* GameCell.swift in Sources */,
@@ -602,7 +621,7 @@
 			baseConfigurationReference = C7F9A94F1BC05A426B7D8FD4 /* Pods-Viva-challenge.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 6U8286L9PF;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Viva-challenge/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.viniciuscarvalho.Viva-challenge";
@@ -616,7 +635,7 @@
 			baseConfigurationReference = 7A1739A82D65223B4E8BB940 /* Pods-Viva-challenge.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 6U8286L9PF;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Viva-challenge/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.viniciuscarvalho.Viva-challenge";
